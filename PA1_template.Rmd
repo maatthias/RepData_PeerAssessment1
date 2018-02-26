@@ -16,7 +16,7 @@ raw <- data.table::fread("activity.csv")
 ```{r echo=TRUE}
 stepsByDay <- raw[, c(lapply(.SD, sum, na.rm = TRUE)), .SDcols = c("steps"), by = .(date)]
 ```
-```{r plot, fig.height=4}
+```{r fig.width = 7, fig.height=6}
 hist(stepsByDay$steps, xlab = "Steps", ylab = "Freq")
 ```
 ```{r}
