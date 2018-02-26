@@ -7,13 +7,13 @@ output:
 
 
 ## Loading and preprocessing the data
-```{r}
+```{r echo=TRUE}
 setwd("C:/~/Coursera/DataScience/Course5_ReproducibleResearch/Week2/Project")
 raw <- data.table::fread("activity.csv")
 ```
 
 ## What is mean total number of steps taken per day?
-```{r}
+```{r echo=TRUE}
 stepsByDay <- raw[, c(lapply(.SD, sum, na.rm = TRUE)), .SDcols = c("steps"), by = .(date)]
 ```
 ```{r plot, fig.height=4}
