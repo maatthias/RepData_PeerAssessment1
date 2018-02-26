@@ -15,9 +15,11 @@ raw <- data.table::fread("activity.csv")
 ## What is mean total number of steps taken per day?
 ```{r}
 stepsByDay <- raw[, c(lapply(.SD, sum, na.rm = TRUE)), .SDcols = c("steps"), by = .(date)]
-
+```
+```{r plot, fig.height=4}
 hist(stepsByDay$steps, xlab = "Steps", ylab = "Freq")
-
+```
+```{r}
 stepsByDay[, .(Mean_Steps = mean(steps, na.rm = TRUE), Median_Steps = median(steps, na.rm = TRUE))]
 ```
 ## What is the average daily activity pattern?
