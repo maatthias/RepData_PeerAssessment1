@@ -8,8 +8,7 @@ output:
 
 ## Loading and preprocessing the data
 ```{r echo=TRUE}
-setwd("C:/~/Coursera/DataScience/Course5_ReproducibleResearch/Week2/Project")
-raw <- data.table::fread("activity.csv")
+raw <- data.table::fread("C:/Users/msnyder/OneDrive - Rainforest Alliance/Mgmt/Training/Coursera/DataScience/Course5_ReproducibleResearch/Week2/Project/activity.csv")
 ```
 
 ## What is mean total number of steps taken per day?
@@ -47,7 +46,7 @@ ggplot(steps, aes(x = steps)) + geom_histogram(fill = "black") + labs(title = "T
 ```
 ## Are there differences in activity patterns between weekdays and weekends?
 ```{r}
-raw <- data.table::fread("activity.csv")
+raw <- data.table::fread("C:/Users/msnyder/OneDrive - Rainforest Alliance/Mgmt/Training/Coursera/DataScience/Course5_ReproducibleResearch/Week2/Project/activity.csv")
 raw[, date := as.POSIXct(date, format = "%Y-%m-%d")]
 raw[, `DayOfWeek`:= weekdays(x = date)]
 raw[grepl(pattern = "Monday|Tuesday|Wednesday|Thursday|Friday", x = `DayOfWeek`), "DayType"] <- "Weekday"
